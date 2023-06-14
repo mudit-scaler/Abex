@@ -42,14 +42,4 @@ module Abex
     # eg app/modules/events/features/constants.rb will be converted to
     # ::Events::Features::Constants::EXPERIMENT
   end
-
-  initializer "abex.helpers" do
-    ActiveSupport.on_load(:action_controller_base) do
-      require "polaris/view_helper"
-      helper Polaris::ViewHelper
-
-      require "polaris/url_helper"
-      helper Polaris::UrlHelper
-    end
-  end
 end
