@@ -42,4 +42,9 @@ module Abex
     # eg app/modules/events/features/constants.rb will be converted to
     # ::Events::Features::Constants::EXPERIMENT
   end
+
+  ActiveSupport.on_load(:action_controller_base) do
+    require "abex/view_helper"
+    helper Abex::ViewHelper
+  end
 end
