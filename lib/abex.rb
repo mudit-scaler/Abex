@@ -2,10 +2,6 @@ require "abex/engine"
 require "view_component/engine"
 
 module Abex
-  config.autoload_paths = %w[
-    #{root}/app/components
-    #{root}/app/helpers
-  ]
   #flagr server url
   mattr_accessor :flagr_host
 
