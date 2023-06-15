@@ -47,4 +47,9 @@ module Abex
     require "abex/view_helper"
     helper Abex::ViewHelper
   end
+
+  config.before_configuration do
+    # view_component related settings
+    config.view_component.render_monkey_patch_enabled = false
+  end
 end
