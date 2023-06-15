@@ -8,7 +8,7 @@ module Abex
 
     ABEX_HELPERS.each do |name, component|
       define_method "abex_#{name}" do |*args, **kwargs, &block|
-        render component.constantize.new(*args, **kwargs), &block
+        render_component component.constantize.new(*args, **kwargs), &block
       end
     end
   end
