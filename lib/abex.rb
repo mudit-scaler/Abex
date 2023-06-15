@@ -1,3 +1,4 @@
+require "rails/engine"
 require "abex/engine"
 require "view_component/engine"
 
