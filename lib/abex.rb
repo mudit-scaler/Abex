@@ -1,6 +1,4 @@
-require "rails/engine"
 require "abex/engine"
-require "view_component/engine"
 
 module Abex
   #flagr server url
@@ -42,15 +40,5 @@ module Abex
     # ::EXPERIMENT will be appended to each path after converting it to module
     # eg app/modules/events/features/constants.rb will be converted to
     # ::Events::Features::Constants::EXPERIMENT
-  end
-
-  ActiveSupport.on_load(:action_controller_base) do
-    require "abex/view_helper"
-    helper Abex::ViewHelper
-  end
-
-  config.before_configuration do
-    # view_component related settings
-    config.view_component.render_monkey_patch_enabled = false
   end
 end
