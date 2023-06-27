@@ -6,7 +6,9 @@
 
 <% if variant.present? %>
   <div data-abex-variant="<%= variant %>">
-    <script>
+    <%= yield %>
+  </div>
+  <script>
       var ele = document.querySelector('[data-abex-variant="<%= variant %>"]');
       if (ele) {
         var elVariant = ele.dataset.abexVariant;
@@ -14,22 +16,10 @@
         console.log(elVariant, parentEle);
         if (parentEle) {
           var flagVariant = parentEle.dataset.flagVariant;
-          console.log(flagVariant);
-          console.log(elVariant);
-          console.log(flagVariant === elVariant);
-          if (flagVariant === elVariant) {
-            console.log('ggojgo');
-            <% debugger %>
-            <% chosen_variant = true %>
-          } else {
-            <% chosen_variant = false %>
+          if (flagVariant !== elVariant) {
+            ele.remove();
           }
         }
       }
     </script>
-    <%= chosen_variant %>
-    <% if chosen_variant.present? %>
-      <%= yield %>
-    <% end %>
-  </div>
 <% end %>
