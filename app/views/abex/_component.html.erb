@@ -17,11 +17,13 @@
           if (flagVariant === elVariant) {
             console.log('ggojgo');
             <% chosen_variant = true %>
+          } else {
+            <% chosen_variant = false %>
           }
         }
       }
     </script>
-    <% debugger %>
+    <%= chosen_variant %>
     <% if chosen_variant.present? %>
       <%= yield %>
     <% end %>
