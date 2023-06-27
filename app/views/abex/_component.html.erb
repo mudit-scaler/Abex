@@ -12,7 +12,8 @@
         if (parentEle) {
           var flagKey = parentEle.dataset.flagKey;
           console.log(flagKey);
-          <% chosen_variant = window.abex[flagKey] || null %>
+          var chosenVariant = window.abex[flagKey] || null;
+          <% chosen_variant = chosenVariant %>
         }
       }
     </script>
