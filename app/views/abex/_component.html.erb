@@ -14,13 +14,14 @@
         if (parentEle) {
           var flagVariant = parentEle.dataset.flagVariant;
           if (flagVariant === elVariant) {
+            console.log('ggojgo');
             <% chosen_variant = true %>
           }
         }
       }
     </script>
     <% if chosen_variant.present? %>
-      
+      <%= yield %>
     <% end %>
   </div>
 <% end %>
