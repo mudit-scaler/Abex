@@ -8,8 +8,10 @@ module Abex
       end
     end
 
-    def abex_case(variant:)
-      render "abex/component", variant: variant
+    def abex_case(variant:, &block)
+      render "abex/component", variant: variant do
+        capture(&block)
+      end
     end
   end
 end
