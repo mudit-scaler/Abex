@@ -1,9 +1,24 @@
-<% variant = local_assigns[:variant] || '' %>
-
-<script>
-  
-</script>
+<% 
+  variant = local_assigns[:variant] || '' 
+  chosen_variant = ''
+%>
 
 <% if variant.present? %>
-  <%= yield %>
+  <div data-abex-variant="<%= variant %>">
+    <script>
+      const ele = document.querySelector('[data-abex-variant="<%= variant %>"]');
+      if (ele) {
+        const parentEle = ele.parentElement;
+        if (parentEle) {
+          var flagKey = parentEle.dataset.flagKey;
+          console.log(flagKey);
+          var chosenVariant = window.abex[flagKey] || null;
+          <% chosen_variant = chosenVariant %>
+        }
+      }
+    </script>
+    <% if chosen_variant&.eql?(variant) %>
+      <%= yield %>
+    <% end %>
+  </div>
 <% end %>
