@@ -2,7 +2,6 @@
   variant = local_assigns[:variant] || '' 
   chosen_variant = false
 %>
-<%= chosen_variant %>
 
 <% if variant.present? %>
   <div data-abex-variant="<%= variant %>">
@@ -13,7 +12,6 @@
       if (ele) {
         var elVariant = ele.dataset.abexVariant;
         var parentEle = ele.parentElement;
-        console.log(elVariant, parentEle);
         if (parentEle) {
           var flagVariant = parentEle.dataset.flagVariant;
           if (flagVariant !== elVariant) {
