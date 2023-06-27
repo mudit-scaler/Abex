@@ -10,6 +10,7 @@
       if (ele) {
         const elVariant = ele.dataset.abexVariant;
         const parentEle = ele.parentElement;
+        console.log(elVariant, parentEle);
         if (parentEle) {
           var flagVariant = parentEle.dataset.flagVariant;
           if (flagVariant === elVariant) {
