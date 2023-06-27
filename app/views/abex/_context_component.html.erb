@@ -3,13 +3,6 @@
   variant = local_assigns[:variant] || 'Default'
 %>
 
-<script>
-  var variant = "<%= variant %>";
-  var flag_key = "<%= flag_key %>";
-  window.abex = {}
-  window.abex[flag_key] = variant;
-</script>
-
-<div data-flag-key="<%= flag_key %>">
+<div data-flag-key="<%= flag_key %>" data-flag-variant="<%= variant %>">
   <%= yield %>
 </div>
