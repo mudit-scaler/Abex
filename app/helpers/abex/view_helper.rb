@@ -1,15 +1,13 @@
 module Abex
   # Module to allow shorthand calls for Abex components
   module ViewHelper
-    ABEX_HELPERS = {
-      context: "Abex::ContextComponent",
-      component: "Abex::Component"
-    }.freeze
+  
+    def abex_switch(flag_key:, variant:)
+      render "abex/context_component", flag_key: flag_key, variant: variant
+    end
 
-    ABEX_HELPERS.each do |name, component|
-      define_method "abex_#{name}" do |*args, **kwargs, &block|
-        render_component component.constantize.new(*args, **kwargs), &block
-      end
+    def abex_case(variant:)
+      render "abex/component", variant: variant
     end
   end
 end

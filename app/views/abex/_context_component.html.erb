@@ -1,0 +1,13 @@
+<%
+  flag_key = local_assigns[:flag_key] || ''
+  variant = local_assigns[:variant] || 'Default'
+%>
+
+<script>
+  window.abexExperiments = {}
+  <% window.abexExperiments[flag_key] = variant %>
+</script>
+
+<div data-flag-key="<%= flag_key %>">
+  <%= yield %>
+</div>
