@@ -8,9 +8,7 @@ module Abex
 
     ABEX_HELPERS.each do |name, component_path|
       define_method "abex_#{name}" do |*args, **kwargs, &block|
-        render "abex/#{component_path}", *args, **kwargs do
-          capture(&block)
-        end
+        render "abex/#{component_path}", *args, **kwargs, &block
       end
     end
   end
