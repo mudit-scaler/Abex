@@ -6,7 +6,8 @@
 <script>
   var variant = "<%= variant %>";
   var flag_key = "<%= flag_key %>";
-  console.log(window);
+  window.abex = {}
+  window.abex[flag_key] = variant;
 </script>
 
 <div data-flag-key="<%= flag_key %>">
