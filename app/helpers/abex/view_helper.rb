@@ -8,7 +8,13 @@ module Abex
     ABEX_HELPERS.each do |name, component_path|
       define_method "abex_#{name}" do |*args, **kwargs, &block|
         render "abex/#{component_path}", *args, **kwargs, &block
-        debugger
+        if component_path.eql?(context_component)
+          puts 'hi'
+          debugger
+        else
+          puts 'hello'
+          debugger
+        end
       end
     end
   end
