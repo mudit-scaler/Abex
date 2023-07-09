@@ -9,7 +9,7 @@ module Abex
     
     define_method "abex_switch" do |*args, **kwargs, &block|
       render "abex/context_component", *args, **kwargs, &block
-      debugger
+      puts "abex_switch"
     end
 
     define_method "abex_case" do |*args, **kwargs, &block|
