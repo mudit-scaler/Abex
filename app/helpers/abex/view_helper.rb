@@ -15,8 +15,10 @@ module Abex
       render "abex/component", *args, **kwargs, &block
     end
 
-    define_method "abex_switch_stack" do |*args, **kwargs, &block|
+    def abex_switch_stack(switch_stack)
       debugger
+
+      return unless switch_stack.present?
     end
   end
 end
