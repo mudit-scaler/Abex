@@ -5,17 +5,16 @@ module Abex
       switch: "context_component",
       case: "component"
     }.freeze
-    ABEX_HELPERS.each do |name, component_path|
-      define_method "abex_#{name}" do |*args, **kwargs, &block|
-        render "abex/#{component_path}", *args, **kwargs, &block
-        if component_path.eql?('context_component')
-          puts 'hi'
-          debugger
-        else
-          puts 'hello'
-          debugger
-        end
-      end
+
+    
+    define_method "abex_switch" do |*args, **kwargs, &block|
+      render "abex/context_component", *args, **kwargs, &block
+      debugger
+    end
+
+    define_method "abex_case" do |*args, **kwargs, &block|
+      render "abex/component", *args, **kwargs, &block
+      puts 'abex_case'
     end
   end
 end
