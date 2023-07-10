@@ -1,23 +1,8 @@
 <% 
   variant = local_assigns[:variant] || '' 
-  chosen_variant = false
+  chosen_variant = fetch_chosen_variant(@abex_features)
 %>
 
-<% if variant.present? %>
-  <div data-abex-variant="<%= variant %>">
-    <%= yield %>
-  </div>
-  <script>
-      var ele = document.querySelector('[data-abex-variant="<%= variant %>"]');
-      if (ele) {
-        var elVariant = ele.dataset.abexVariant;
-        var parentEle = ele.parentElement;
-        if (parentEle) {
-          var flagVariant = parentEle.dataset.flagVariant;
-          if (flagVariant !== elVariant) {
-            ele.remove();
-          }
-        }
-      }
-    </script>
+<% if variant.present? && chosen_variant.present? && variant.eql?(chosen_variant) %>
+  <%= yield %>
 <% end %>

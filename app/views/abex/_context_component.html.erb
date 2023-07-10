@@ -1,9 +1,9 @@
 <%
-  flag_key = local_assigns[:flag_key] || ''
-  variant = local_assigns[:variant] || 'Default'
+  experiment_key = local_assigns[:experiment_key] || ''
 %>
 
-<div data-flag-key="<%= flag_key %>" data-flag-variant="<%= variant %>">
+<div data-abex-key="<%= experiment_key %>">
+  <% @abex_features.add_to_progress(key: experiment_key) %>
   <%= yield %>
-  <%= abex_switch_stack(@event) %>
+  <% @abex_features.remove_from_progress %>
 </div>

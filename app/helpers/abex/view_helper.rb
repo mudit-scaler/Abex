@@ -15,10 +15,14 @@ module Abex
       render "abex/component", *args, **kwargs, &block
     end
 
-    def abex_switch_stack(switch_stack)
-      debugger
+    def fetch_chosen_variant(abex_features)
+      return nil unless abex_features.present?
 
-      return unless switch_stack.present?
+      abex_switch_stack = abex_features.progress
+      experiment_key = abex_switch_stack.peek
+      return nil unless experiment_key.present?
+
+      abex_features.dig(experiment_key)
     end
   end
 end
